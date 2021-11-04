@@ -16,7 +16,7 @@ import telethon.utils
 os.system("pip install -U telethon")
 
 l2= Config.SUDO_COMMAND_HAND_LER
-LEGEND_PIC = "https://te.legra.ph/file/a3e358b1331d6ef9a6299.mp4"
+LEGEND_PIC = "https://te.legra.ph/file/11ec9dd576ee5536125b2.jpg"
 l1 = Config.COMMAND_HAND_LER
 
 
@@ -88,7 +88,8 @@ async def assistants():
                     LOGS.warning(f"[LEGEND-BOT 3.0] - Assistant - ⚠️⚡ERROR⚡⚠️ - {shortname}")
                     LOGS.warning(str(e))
     else:
-        print("Addons Not Loading")
+        print("⚠️Assistant Not Loaded⚠️")
+
 addon = os.environ.get("EXTRA_PLUGIN", None)             
 async def addons():
     if addon == "ON":
@@ -108,12 +109,12 @@ async def addons():
                 try:
                     load_addons(shortname.replace(".py", ""))
                     if not shortname.startswith("__") or shortname.startswith("_"):
-                        LOGS.info(f"[LEGEND-BOT 2.1] - Addons -  ✅Installed✅ - {shortname}")
+                        LOGS.info(f"[LEGEND-BOT 3.0] - Addons -  ✅Installed✅ - {shortname}")
                 except Exception as e:
-                    LOGS.warning(f"[LEGEND-BOT 2.1] - Addons - ⚠️⚡ERROR⚡⚠️ - {shortname}")
+                    LOGS.warning(f"[LEGEND-BOT 3.0] - Addons - ⚠️⚡ERROR⚡⚠️ - {shortname}")
                     LOGS.warning(str(e))
     else:
-        print("Addons Not Loading")
+        print("⚠️Addons Not Loading⚠️")
         
 abuse = os.environ.get("ABUSE", None) 
 async def abuses():
@@ -134,20 +135,44 @@ async def abuses():
                 try:
                     load_abuse(shortname.replace(".py", ""))
                     if not shortname.startswith("__") or shortname.startswith("_"):
-                        LOGS.info(f"[LEGEND-BOT 2.1] - Abuse -  🔥📍Installed✔ - {shortname}")
+                        LOGS.info(f"[LEGEND-BOT 3.0] - Abuse -  🔥📍Installed✔ - {shortname}")
                 except Exception as e:
-                    LOGS.warning(f"[LEGEND-BOT 2.1] - Abuse - ⚠️⚡ERROR⚡⚠️ - {shortname}")
+                    LOGS.warning(f"[LEGEND-BOT 3.0] - Abuse - ⚠️⚡ERROR⚡⚠️ - {shortname}")
                     LOGS.warning(str(e))
     else:
-        print("Abuse Not Loading")
+        print("⚠️Abuse Not Loading⚠️")
 
-
+spam = os.environ.get("SPAM", None)
+async def spams():
+    if spam == "ON":
+        extra_repo = "https://github.com/The-LegendBot/Spam"
+        try:
+            os.system(f"git clone {extra_repo}")  
+        except BaseException:
+            pass
+        import glob
+        LOGS.info("🤖Loading Spam Bot Plugin🤖")
+        path = "assistant/*.py"
+        files = glob.glob(path)
+        for name in files:
+            with open(name) as ex:
+                path2 = Path(ex.name)
+                shortname = path2.stem
+                try:
+                    start_assistant(shortname.replace(".py", ""))
+                    if not shortname.startswith("__") or shortname.startswith("_"):
+                        LOGS.info(f"[LEGEND-BOT 3.0] - SpamBot -  🤴Installed🤴 - {shortname}")
+                except Exception as e:
+                    LOGS.warning(f"[LEGEND-BOT 3.0] - SpamBot - ⚠️⚡ERROR⚡⚠️ - {shortname}")
+                    LOGS.warning(str(e))
+    else:
+        print("⚠️Spam Not Loading⚠️")
 
 bot.loop.run_until_complete(module())
 bot.loop.run_until_complete(addons())
 bot.loop.run_until_complete(abuses())
 bot.loop.run_until_complete(assistants())
-
+bot.loop.run_until_complete(spams())
 
 print(f"""♥️🇮🇳♥️⚜♥️
 ╔════❰LEGENDBOT❱═❍⊱❁۪۪
@@ -159,7 +184,7 @@ print(f"""♥️🇮🇳♥️⚜♥️
 ║╰━━━━━━━━━━━━━━━➣
 ╚══════════════════❍⊱""")
 
-async def legend_is_on():
+async def legend_op():
     try:
         if Config.LOGGER_ID != 0:
             await bot.send_file(
@@ -181,7 +206,7 @@ async def legend_is_on():
     except BaseException:
          pass
 
-bot.loop.create_task(legend_is_on())
+bot.loop.create_task(legend_op())
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
