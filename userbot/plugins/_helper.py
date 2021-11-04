@@ -13,10 +13,10 @@ perf = "[ †hê Lêɠêɳ̃dẞø† ]"
 
 onbot = "start - Check if I am Alive \nhack - Hack Anyone Through String Session\nping - Pong! \ntr - <lang-code> \nbroadcast - Sends Message To all Users In Bot \nid - Shows ID of User And Media. \naddnote - Add Note \nnotes - Shows Notes \nrmnote - Remove Note \nalive - Am I Alive? \nbun - Works In Group , Bans A User. \nunbun - Unbans A User in Group \nprumote - Promotes A User \ndemute - Demotes A User \npin - Pins A Message \nstats - Shows Total Users In Bot \npurge - Reply It From The Message u Want to Delete (Your Bot Should be Admin to Execute It) \ndel - Reply a Message Tht Should Be Deleted (Your Bot Should be Admin to Execute It)"
 
-name = f"🔥⚡Assistant⚡🔥 Of {legend_mention}"
+name = f"{legend_mention}'s Assistant"
 
 file = "https://te.legra.ph/file/0a1fa23cbb1e6520f6550.jpg"
-description = f"I am Assistant Of {legend_mention}"
+description = f"I am Assistant Of {legend_mention}.This Bot Can Help U To Chat With My Master"
 bot_father = "@BotFather"
 mybot = Config.BOT_USERNAME
 if mybot.startswith("@"):
@@ -162,21 +162,13 @@ async def _(event):
                 sixteen = await conv.get_response()
                 seventeen = await conv.send_message(description)
                 eightteen = await conv.get_response()
-                onew = await conv.send_message("/setuserpic")
-                twow = await conv.get_response()
-                threew = await conv.send_message(botname)
-                fourw = await conv.get_response()
-                fivew = await bot.send_file(
-                    "userbot/resources/pics/-4965507108355287505_121.jpg"
-                )
-                sixw = await conv.get_response()
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
                 return await legend.edit("Unblock @Botfather first.")
             await event.edit(f"**Turned On Assistance Successfully.\nClick Here 👉{botname} & Add To Any Group**")
             await bot.delete_messages(
-                conv.chat_id, [first.id, second.id, third.id, fourth.id, fifth.id, sixth.id, seventh.id, eighth.id, nineth.id, tenth.id, eleventh.id, twelveth.id, thirdteen.id, fourteen.id, fiveteen.id, sixteen.id, seventeen.id, eightteen.id, onew.id, twow.id, threew.id, fourw.id, fivew.id, sixw.id]
+                conv.chat_id, [first.id, second.id, third.id, fourth.id, fifth.id, sixth.id, seventh.id, eighth.id, nineth.id, tenth.id, eleventh.id, twelveth.id, thirdteen.id, fourthteen.id, fiveteen.id, sixteen.id, seventeen.id, eightteen.id]
                 )
     else:
-        return await event.edit("**Plz First Turn On Assistant.** Click Here👉 `.set var ASSISTANT ON`")
+        return await event.edit("**Plz First Turn On Assistant.** Click Here👉 `.set var ASSISTANT ON` Anf send")
     
