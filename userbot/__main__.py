@@ -18,10 +18,9 @@ os.system("pip install -U telethon")
 l2= Config.SUDO_COMMAND_HAND_LER
 LEGEND_PIC = "https://te.legra.ph/file/a3e358b1331d6ef9a6299.mp4"
 l1 = Config.COMMAND_HAND_LER
-import os
-os.system("pip install safety-ub")
-from safety import StartSafety as safe
-            
+
+
+
 async def add_bot(bot_token):
     try:
         await bot.start(bot_token)
@@ -68,7 +67,7 @@ async def module():
 assistant = os.environ.get("ASSISTANT", None)
 async def assistants():
     if assistant == "ON":
-        extra_repo = "https://github.com/LEGEND-OS/assistant"
+        extra_repo = "https://github.com/The-LegendBot/assistant"
         try:
             os.system(f"git clone {extra_repo}")  
         except BaseException:
@@ -93,7 +92,7 @@ async def assistants():
 addon = os.environ.get("EXTRA_PLUGIN", None)             
 async def addons():
     if addon == "ON":
-        extra_repo = "https://github.com/LEGEND-OS/LegendBot-Addons"
+        extra_repo = "https://github.com/The-LegendBot/LegendBot-Addons"
         try:
             os.system(f"git clone {extra_repo}")  
         except BaseException:
@@ -119,7 +118,7 @@ async def addons():
 abuse = os.environ.get("ABUSE", None) 
 async def abuses():
     if abuse == "ON":
-        abuse_repo = "https://github.com/LEGEND-OS/ABUSE"
+        abuse_repo = "https://github.com/The-LegendBot/ABUSE"
         try:
             os.system(f"git clone {abuse_repo}")  
         except BaseException:
@@ -142,19 +141,6 @@ async def abuses():
     else:
         print("Abuse Not Loading")
 
-async def fetch_plugins_from_channel():
-    """Fetch Plugins From Channel"""
-    try:
-        async for message in bot.search_messages(
-            Config.PLUGIN_CHANNEL, filter="document", query=".py"
-        ):
-            hmm = message.document.file_name
-            if not os.path.exists(os.path.join("./userbot/plugins/", hmm)):
-                await bot.download_media(message, file_name="./userbot/plugins/")
-    except BaseException as e:
-        LOGS.warning(f"Failed! To Install Plugins From Plugin Channel Due To {e}!")
-        return
-    LOGS.info("All Plugins From Plugin Channel Loaded!")
 
 
 bot.loop.run_until_complete(module())
@@ -175,7 +161,6 @@ print(f"""♥️🇮🇳♥️⚜♥️
 
 async def legend_is_on():
     try:
-        safe()
         if Config.LOGGER_ID != 0:
             await bot.send_file(
                 Config.LOGGER_ID,
