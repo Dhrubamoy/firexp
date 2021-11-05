@@ -317,9 +317,9 @@ async def hehehe(event):
     if event.is_private:
         if not pm_sql.is_approved(chat.id):
             pm_sql.approve(
-                chat.id, "**My Boss iz here....**"
+                chat.id, f"**My Boss iz here..{legend_mention}'s Its Ur Lucky day Nibba😏!!**"
             )
-            await borg.send_message(chat, "**⚡Welcome My Owner⚡!!**")
+            await borg.send_message(chat, f"**⚡Welcome My Master⚡\n{legend_mention}'a Its Ur Lucky Day Nibba😏!!**")
 
 
 CmdHelp("pm_permit").add_command(
