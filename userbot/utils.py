@@ -26,7 +26,7 @@ from typing import List
 from var import Var
 from userbot.helpers.exceptions import CancelProcess
 from userbot.Config import Config
-from userbot import bot, Legend, LegendBot. LOGS
+from userbot import bot, Legend, LegendBot, LOGS
 from userbot.helpers.tools import media_type
 from userbot import CMD_LIST, SUDO_LIST, LOAD_PLUG, LOGS, SUDO_LIST, bot, tbot
 
