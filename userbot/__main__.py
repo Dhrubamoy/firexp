@@ -6,7 +6,7 @@ from telethon import TelegramClient
 from var import Var
 from userbot.Config import Config
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
-from userbot.utils import load_module, start_assistant, load_addons, load_abuse 
+from userbot.utils import load_module, start_assistant, load_addons, load_abuse, start_spam
 from userbot.utils import *
 from userbot import LOAD_PLUG, LOGS, LEGENDversion
 from pathlib import Path
@@ -159,7 +159,7 @@ async def spams():
                 path2 = Path(ex.name)
                 shortname = path2.stem
                 try:
-                    start_assistant(shortname.replace(".py", ""))
+                    start_spam(shortname.replace(".py", ""))
                     if not shortname.startswith("__") or shortname.startswith("_"):
                         LOGS.info(f"[LEGEND-BOT 3.0] - SpamBot -  🤴Installed🤴 - {shortname}")
                 except Exception as e:
