@@ -88,7 +88,7 @@ async def assistants():
                     LOGS.warning(str(e))
     else:
         print("⚠️Assistant Not Loaded⚠️")
-"""
+
 addon = os.environ.get("EXTRA_PLUGIN", None)             
 async def addons():
     if addon == "ON":
@@ -116,7 +116,7 @@ async def addons():
         print("⚠️Addons Not Loading⚠️")
        
 
-"""
+
 abuse = os.environ.get("ABUSE", None) 
 async def abuses():
     if abuse == "ON":
@@ -170,7 +170,7 @@ async def spams():
         print("⚠️Spam Not Loading⚠️")
 
 bot.loop.run_until_complete(module())
-#bot.loop.run_until_complete(addons())
+bot.loop.run_until_complete(addons())
 bot.loop.run_until_complete(abuses())
 bot.loop.run_until_complete(assistants())
 bot.loop.run_until_complete(spams())
