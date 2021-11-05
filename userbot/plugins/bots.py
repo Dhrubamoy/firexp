@@ -125,6 +125,37 @@ async def _(event):
         await event.client.send_message(
             event.chat_id, response.message, reply_to=reply_message
         )
+        
+        
+@bot.on(admin_cmd(pattern="dm ?(.*)"))
+@bot.on(sudo_cmd(pattern="dm ?(.*)", allow_sudo=True))
+async def _(event):
+    if len(event.text) > 3:
+        if not event.text[3] == " ":
+            return
+    d = event.pattern_match.group(1)
+    c = d.split(" ")
+    try:
+        chat_id = await get_user_id(c[0])
+    except Exception as e:
+        return await eod(event, f"`{e}`")
+    msg = ""
+    hunter = await event.get_reply_message()
+    if event.reply_to_msg_id:
+        await bot.send_message(chat_id, hunter)
+        await eod(event, "**[Done]**")
+    for i in c[1:]:
+        msg += i + " "
+    if msg == "":
+        return
+    try:
+        await bot.send_message(chat_id, msg)
+        await eod(event, "**[Done]**")
+    except BaseException:
+        await eod(f"**Invalid Syntax !!**\n\n`.dm <Username or UserID> <message>`")
+
+        
+        
 CmdHelp("checkbot").add_command(
      'reader', None, 'open that url in telegraph'
 ).add_command(
@@ -135,10 +166,14 @@ CmdHelp("checkbot").add_command(
      'recognize', None, 'Send Detail about it'
 ).add_command(
      'limit', None, 'Chech If u are limited or not'
+).add_command(
+    "dm",
+    "<username or user id> <message>",
+    "Sends a DM to given username with required msg",
 ).add_info(
      "Its Work Like Bot On Telegram Access Through Userbot"
 ).add_warning(
      "Harmless Module✅"
 ).add_type(
-  "Official"
+      "Official"
 ).add()
