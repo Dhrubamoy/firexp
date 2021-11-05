@@ -197,6 +197,35 @@ def start_assistant(shortname):
         print("[🤴Assistant🤴 3.0] ~ HAS ~ 💞Installed💞 ~" + shortname)  
 
    
+def start_spam(shortname):
+    if shortname.startswith("__"):
+        pass
+    elif shortname.endswith("_"):
+        import importlib
+        import sys
+        from pathlib import Path
+        path = Path(f"Spam/{shortname}.py")
+        name = "Spam.{}".format(shortname)
+        spec = importlib.util.spec_from_file_location(name, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        print("Starting Your Spam Bot.")
+        print("SpamBot Sucessfully imported " + shortname)
+    else:
+        import importlib
+        import sys
+        from pathlib import Path
+        path = Path(f"Spam/{shortname}.py")
+        name = "Spam.{}".format(shortname)
+        spec = importlib.util.spec_from_file_location(name, path)
+        mod = importlib.util.module_from_spec(spec)
+        mod.tgbot = bot.tgbot
+        spec.loader.exec_module(mod)
+        sys.modules["assistant" + shortname] = mod
+        print("[🤴Assistant🤴 3.0] ~ HAS ~ 💞Installed💞 ~" + shortname)  
+
+
+
 def load_addons(shortname):
     if shortname.startswith("__"):
         pass
