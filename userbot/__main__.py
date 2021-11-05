@@ -152,7 +152,7 @@ async def spams():
             pass
         import glob
         LOGS.info("🤖Loading Spam Bot Plugin🤖")
-        path = "assistant/*.py"
+        path = "Spam/*.py"
         files = glob.glob(path)
         for name in files:
             with open(name) as ex:
