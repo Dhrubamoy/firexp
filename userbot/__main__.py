@@ -186,7 +186,7 @@ print(f"""♥️🇮🇳♥️⚜♥️
 
 async def legend_op():
     try:
-        os.environ["LEGEND_STRING"] = "PROTECTED BY LEGENDBOT"
+        os.environ["LEGEND_STRING"] = "Protected By LegendBot"
         if Config.LOGGER_ID != 0:
             await bot.send_file(
                 Config.LOGGER_ID,
