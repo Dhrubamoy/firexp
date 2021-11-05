@@ -94,8 +94,8 @@ async def _(event):
     await event.edit(mentions)
     
     
-@bot.on(admin_cmd(pattern="ids"))
-@bot.on(sudo_cmd(pattern="ids", allow_sudo=True))
+@bot.on(admin_cmd(pattern="id"))
+@bot.on(sudo_cmd(pattern="id", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
