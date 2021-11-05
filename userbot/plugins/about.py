@@ -6,27 +6,25 @@ from LEGENDBOT.utils import admin_cmd
 from userbot.cmdhelp import CmdHelp
 from userbot import ALIVE_NAME
 from telethon.tl.types import ChannelParticipantsAdmins
-# 🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "LEGEND"
+
 from userbot.Config import Config
 CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG
-# Thanks to LEGEND BRO.. 
 # animation Idea by @The_LegendBoy (op coder)
 # Kang with credits else gay...
 # alive.py for
 
-edit_time = 10
+edit_time = 12
 """ =======================CONSTANTS====================== """
-file1="https://telegra.ph/file/639880e214bdcd4a71b7a.jpg"
-file2="https://telegra.ph/file/9fb5502699714b8eabca3.jpg"
-file3="https://telegra.ph/file/b434509bdfce4ab680fb6.jpg"
-file4="https://telegra.ph/file/c113d2da817de44d958a6.jpg"
-file5="https://te.legra.ph/file/4e98696debcf92c0f8eb6.jpg"
+file1="https://te.legra.ph/file/2426eab17330c6e6310ea.mp4"
+file2="https://te.legra.ph/file/11ec9dd576ee5536125b2.jpg"
+file3="https://te.legra.ph/file/d2a5265abdc4e73af1f94.jpg"
+file4="https://te.legra.ph/file/d17467283e73c884834a5.jpg"
+file5="https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
 """ =======================CONSTANTS====================== """
 pm_caption = f"** {CUSTOM_ALIVE_TEXT}**\n"
 pm_caption += f"**╭────────────**\n"
 pm_caption += f"┣»»»『{legend_mention}』«««\n"
-pm_caption += f"┣Lêɠêɳ̃dẞø† ~ V•2.1\n"
+pm_caption += f"┣Lêɠêɳ̃dẞø† ~ {LEGEND\n"
 pm_caption += f"┣Lêɠêɳ̃d  ~ [Owner](https://t.me/The_LegendBoy)\n"
 pm_caption += f"┣Support ~ [G𝖗ουρ](https://t.me/Legend_Userbot)\n"
 pm_caption += f"┣Řepô    ~ [Rєρο](https://github.com/LEGEND-OS/LEGENDBOT)\n"
@@ -86,6 +84,10 @@ async def amireallyalive(yes):
     
 CmdHelp("about").add_command(
     "about", None , "BEST alive command"
+).add_warning(
+    "Harmless Module✅"
+)add_info(
+    "Just Like Alive But Changing Alwayd Pic"
 ).add_type(
     "Official"
 ).add()
