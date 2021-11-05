@@ -8,33 +8,27 @@ import os
 import re
 import sys
 import time
+import shlex
 import traceback
+import functools
 from pathlib import Path
 from time import gmtime, strftime
-
+from typing import Tuple
+from telethon import functions, types
+from userbot import LOGS
 from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
+from telethon.tl.functions.messages import GetPeerDialogsRequest
+import subprocess
+import datetime
+from typing import List
 from var import Var
 from userbot.helpers.exceptions import CancelProcess
 from userbot.Config import Config
-from userbot import bot, Legend, LegendBot
-from telethon import events
-from pathlib import Path
-from var import Var
+from userbot import bot, Legend, LegendBot. LOGS
+from userbot.helpers.tools import media_type
 from userbot import CMD_LIST, SUDO_LIST, LOAD_PLUG, LOGS, SUDO_LIST, bot, tbot
-import logging
-import inspect
-import asyncio
-from traceback import format_exc
-from time import gmtime, strftime
-import subprocess
-import sys
-import traceback
-import datetime
-from telethon.tl.functions.messages import GetPeerDialogsRequest
-
-from typing import List
 
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
@@ -42,87 +36,14 @@ if ENV:
 else:
     if os.path.exists("config.py"):
         from config import Development as Config
-
-def command(**args):
-    args["func"] = lambda e: e.via_bot_id is None
-
-    stack = inspect.stack()
-    previous_stack_frame = stack[1]
-    file_test = Path(previous_stack_frame.filename)
-    file_test = file_test.stem.replace(".py", "")
-    if 1 == 0:
-        return print("stupidity at its best")
-    else:
-        pattern = args.get("pattern", None)
-        allow_sudo = args.get("allow_sudo", None)
-        allow_edited_updates = args.get('allow_edited_updates', False)
-        args["incoming"] = args.get("incoming", False)
-        args["outgoing"] = True
-        if bool(args["incoming"]):
-            args["outgoing"] = False
-
-        try:
-            if pattern is not None and not pattern.startswith('(?i)'):
-                args['pattern'] = '(?i)' + pattern
-        except:
-            pass
-
-        reg = re.compile('(.*)')
-        if not pattern == None:
-            try:
-                cmd = re.search(reg, pattern)
-                try:
-                    cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
-                except:
-                    pass
-
-                try:
-                    CMD_LIST[file_test].append(cmd)
-                except:
-                    CMD_LIST.update({file_test: [cmd]})
-            except:
-                pass
-
-        if allow_sudo:
-            args["from_users"] = list(Config.SUDO_USERS)
-            # Mutually exclusive with outgoing (can only set one of either).
-            args["incoming"] = True
-        del allow_sudo
-        try:
-            del args["allow_sudo"]
-        except:
-            pass
-        
-        args["blacklist_chats"] = True
-        black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
-        if len(black_list_chats) > 0:
-            args["chats"] = black_list_chats
-
-        if "allow_edited_updates" in args:
-            del args['allow_edited_updates']
-
-        def decorator(func):
-            if allow_edited_updates:
-                bot.add_event_handler(func, events.MessageEdited(**args))
-            bot.add_event_handler(func, events.NewMessage(**args))
-            try:
-                LOAD_PLUG[file_test].append(func)
-            except:
-                LOAD_PLUG.update({file_test: [func]})
-            return func
-
-        return decorator
-
-
+      
+            
 
 def load_module(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
         import userbot.utils
-        import sys
-        import importlib
-        from pathlib import Path
         path = Path(f"userbot/plugins/{shortname}.py")
         name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
@@ -131,9 +52,6 @@ def load_module(shortname):
         LOGS.info("Lêɠêɳ̃dẞø† ~ " + shortname)
     else:
         import userbot.utils
-        import sys
-        import importlib
-        from pathlib import Path
         path = Path(f"userbot/plugins/{shortname}.py")
         name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
@@ -171,10 +89,6 @@ def start_assistant(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
-        import importlib
-        import sys
-        from pathlib import Path
-
         path = Path(f"assistant/{shortname}.py")
         name = "assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
@@ -183,10 +97,6 @@ def start_assistant(shortname):
         print("Starting Your Assistant Bot.")
         print("Assistant Sucessfully imported " + shortname)
     else:
-        import importlib
-        import sys
-        from pathlib import Path
-
         path = Path(f"assistant/{shortname}.py")
         name = "assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
@@ -540,7 +450,6 @@ async def edit_or_reply(
     await event.delete()
     os.remove(file_name)
 
-on = bot.on
 async def eor(
     event,
     text,
