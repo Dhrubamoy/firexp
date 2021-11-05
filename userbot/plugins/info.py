@@ -565,5 +565,9 @@ CmdHelp("info").add_command(
 ).add_command(
   'chatinfo', '<username of group>', 'Shows you the total information of the required chat'
 ).add_info(
-  "Its Help U To Find Info
+  "Its Help U To Find Info"
+).add_warning(
+  "Harmless Module✅"
+).add_type(
+  "Official"
 ).add()
