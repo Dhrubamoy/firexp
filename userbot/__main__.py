@@ -13,10 +13,9 @@ from pathlib import Path
 import asyncio
 import glob
 import telethon.utils
-os.system("pip install -U telethon")
 
 l2= Config.SUDO_COMMAND_HAND_LER
-LEGEND_PIC = "https://te.legra.ph/file/11ec9dd576ee5536125b2.jpg"
+LEGEND_PIC = "https://telegra.ph/file/e753315316673cff51085.mp4"
 l1 = Config.COMMAND_HAND_LER
 
 
