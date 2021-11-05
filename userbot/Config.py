@@ -54,13 +54,13 @@ if ENV:
         #MongoDB
         MONGO_URI = os.environ.get("MONGO_URI", None)
         #alive
-        ALIVE_PIC = os.environ.get("ALIVE_PIC", None) or "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
+        ALIVE_PIC = os.environ.get("ALIVE_PIC", None) or "https://te.legra.ph/file/2426eab17330c6e6310ea.mp4"
         PM_PIC = os.environ.get("PM_PIC", None) or "https://te.legra.ph/file/0c605739ddaa472cad75f.jpg"
         AWAKE_PIC = os.environ.get("AWAKE_PIC", None) or "https://telegra.ph/file/47ffec836544b371408ab.mp4"
         HELP_PIC = os.environ.get("OP_PIC", None) or "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
         PING_PIC = os.environ.get("PING_PIC", None) or "https://te.legra.ph/file/ace5feae5b1ac8ea262ed.jpg"
-        ALIVE_MSG = os.environ.get("ALIVE_MSG", None)
-        PM_MSG = os.environ.get("PM_MSG", None)
+        ALIVE_MSG = os.environ.get("ALIVE_MSG", None) or "Lêɠêɳ̃dẞø† Is Online"
+        PM_MSG = os.environ.get("PM_MSG", None) 
         INSTANT_BLOCK = os.environ.get("INSTANT_BLOCK", "DISABLE")
         YOUR_GROUP = os.environ.get("YOUR_GROUP", "@Legend_Userbot")
         YOUR_CHANNEL = os.environ.get("YOUR_CHANNEL", "@Official_LegendBot.")
@@ -103,7 +103,6 @@ if ENV:
         # github vars
         BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
         FORCE_CHANNEL_ID = int(os.environ.get("FORCE_CHANNEL_ID", False))
-        EXTRA_LEGENDBOT = os.environ.get("EXTRA_LEGENDBOT", -1001221881562)
         PM_DATA = os.environ.get("PM_DATA", "ENABLE")
         GOOGLE_SEARCH_COUNT_LIMIT = int(os.environ.get("GOOGLE_SEARCH_COUNT_LIMIT", 9))
         # This is required for the speech to text module. Get your USERNAME from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html
