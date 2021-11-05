@@ -221,8 +221,8 @@ def start_spam(shortname):
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
         spec.loader.exec_module(mod)
-        sys.modules["assistant" + shortname] = mod
-        print("[🤴Assistant🤴 3.0] ~ HAS ~ 💞Installed💞 ~" + shortname)  
+        sys.modules["Spam" + shortname] = mod
+        print("[🔰Spam🔰 3.0] ~ HAS ~ 💞Installed💞 ~" + shortname)  
 
 
 
