@@ -791,7 +791,7 @@ async def _(event):
             '`"Drivers in a hurry to beat traffic usually cause the accidents which create the traffic they were trying to avoid."`'
         )
 
-     if x == 36:
+    if x == 36:
 
         await event.edit(
             '`"Characters that get married in fiction were literally made for each other."`'
