@@ -13,7 +13,7 @@ from . import *
 
 uptime = get_readable_time((time.time() - StartTime))
 DEFAULTUSER = ALIVE_NAME or "𝖑𝖊ɠêɳ̃dẞø✞︎ 🇮🇳"
-LEGEND_IMG = Config.ALIVE_PIC
+LEGEND_IMG = "https://telegra.ph/file/153977a71b928874151a5.jpg"
 CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG or "ℓєgєи∂ Choice 𝖑𝖊ɠêɳ̃dẞø✞︎"
 CUSTOM_YOUR_GROUP =Config.YOUR_GROUP or "@Legend_Userbot"
 
