@@ -53,7 +53,7 @@ async def install(event):
                 await event.get_reply_message(),
                 "./userbot/plugins/"  # pylint:disable=E0602
             )
-            if owo != "-i":
+            if owo != "-f":
                 op = open(downloaded_file_name, "r")
                 rd = op.read()
                 op.close()
@@ -61,7 +61,7 @@ async def install(event):
                     for harm in HARMFUL:
                         if harm in rd:
                             os.remove(downloaded_file_name)
-                            return await legend.edit(f"**⚠️ WARNING !!** \n\n__Replied plugin file contains some harmful codes. Please consider checking the file. If you still want to install then use__ `.install -i`. \n\n**Codes Detected :** \n• {harm}")
+                            return await legend.edit(f"**⚠️ WARNING !!** \n\n__Replied plugin file contains some harmful codes. Please consider checking the file. If you still want to install then use__ `.install -f`. \n\n**Codes Detected :** \n• {harm}")
                 except BaseException:
                     pass
             if "(" not in downloaded_file_name:
@@ -80,7 +80,7 @@ async def install(event):
                             a = "__Installing...__"
                             b = 1
                         await legend.edit(a)
-                    return await legend.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {legend_mention}\n\n{string}\n\n        ⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt]({chnl_link})** ⚡", link_preview=False)
+                    return await legend.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {legend_mention}\n\n{string}\n\n        ⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ Lêɠêɳ̃dẞø†]({chnl_link})** ⚡", link_preview=False)
                 return await legend.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
             else:
                 os.remove(downloaded_file_name)
@@ -92,8 +92,8 @@ async def install(event):
     
  
 
-@bot.on(admin_cmd(pattern="install -i$", outgoing=True))
-@bot.on(sudo_cmd(pattern="install -i$", allow_sudo=True))
+@bot.on(admin_cmd(pattern="install -f$", outgoing=True))
+@bot.on(sudo_cmd(pattern="install -f$", allow_sudo=True))
 async def install(event):
     if event.fwd_from:
         return
