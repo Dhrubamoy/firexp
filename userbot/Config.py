@@ -54,7 +54,7 @@ if ENV:
         #MongoDB
         MONGO_URI = os.environ.get("MONGO_URI", None)
         #alive
-        ALIVE_PIC = os.environ.get("ALIVE_PIC", None) or "https://te.legra.ph/file/2426eab17330c6e6310ea.mp4"
+        ALIVE_PIC = os.environ.get("ALIVE_PIC", None) or "https://telegra.ph/file/af51de2749a4506d3eb43.jpg"
         PM_PIC = os.environ.get("PM_PIC", None) or "https://te.legra.ph/file/0c605739ddaa472cad75f.jpg"
         AWAKE_PIC = os.environ.get("AWAKE_PIC", None) or "https://telegra.ph/file/47ffec836544b371408ab.mp4"
         HELP_PIC = os.environ.get("OP_PIC", None) or "https://te.legra.ph/file/b5d01ceea49ee0a822661.mp4"
