@@ -197,8 +197,8 @@ def load_abuse(shortname):
         import sys
         import importlib
         from pathlib import Path
-        path = Path(f"Abuse/{shortname}.py")
-        name = "Abuse.{}".format(shortname)
+        path = Path(f"userbot/plugins/Abuse/{shortname}.py")
+        name = "userbot/plugins/Abuse.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -208,8 +208,8 @@ def load_abuse(shortname):
         import sys
         import importlib
         from pathlib import Path
-        path = Path(f"Abuse/{shortname}.py")
-        name = "Abuse.{}".format(shortname)
+        path = Path(f"userbot/plugins/Abuse/{shortname}.py")
+        name = "userbot/plugins/Abuse.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = Legend
