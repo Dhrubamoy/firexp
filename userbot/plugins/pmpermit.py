@@ -319,7 +319,7 @@ async def hehehe(event):
             pm_sql.approve(
                 chat.id, f"**My Boss iz here..{legend_mention}'s Its Ur Lucky day Nibba😏!!**"
             )
-            await borg.send_message(chat, f"**⚡Welcome My Master⚡\n{legend_mention}'a Its Ur Lucky Day Nibba😏!!**")
+            await borg.send_message(chat, f"⚡ **Welcome My Master** ⚡")
 
 
 CmdHelp("pm_permit").add_command(
