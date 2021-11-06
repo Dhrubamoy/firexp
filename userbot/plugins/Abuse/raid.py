@@ -332,25 +332,7 @@ async def _(event):
 @bot.on(sudo_cmd(pattern="raid(?: |$)(.*)", allow_sudo=True))
 async def spam(e):  
     if event.fwd_from:
-        if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-            return await e.reply(usage, parse_mode=None, link_preview=None )
-        legend = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-        smex = await e.get_reply_message()
-        if len(legend) == 2:
-            message = str(legend[1])
-            print(message)
-            a = await e.client.get_entity(message)
-            g = a.id
-            c = a.first_name
-            username = f"[{c}](tg://user?id={g})"
-            counter = int(legend[0])
-            for _ in range(counter):
-                reply = random.choice(RAID)
-                caption = f"{username} {reply}"
-                async with e.client.action(e.chat_id, "typing"):
-                    await e.client.send_message(e.chat_id, caption)
-                    await asyncio.sleep(0.3)
-        elif e.reply_to_msg_id:             
+        if e.reply_to_msg_id:             
             a = await e.get_reply_message()
             b = await e.client.get_entity(a.sender_id)
             g = b.id
@@ -363,8 +345,8 @@ async def spam(e):
                 async with e.client.action(e.chat_id, "typing"):
                     await e.client.send_message(e.chat_id, caption)
                     await asyncio.sleep(0.3)
-    else:
-        await e.reply(usage, parse_mode=None, link_preview=None )
+        else:
+             await e.reply(usage, parse_mode=None, link_preview=None )
 
 
 @bot.on(admin_cmd(pattern="replyraid(?: |$)(.*)"))
