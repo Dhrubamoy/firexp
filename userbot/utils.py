@@ -89,21 +89,21 @@ def start_assistant(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
-        path = Path(f"assistant/{shortname}.py")
-        name = "assistant.{}".format(shortname)
+        path = Path(f"userbot/plugins/assistant/{shortname}.py")
+        name = "userbot.plugins.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         print("Starting Your Assistant Bot.")
         print("Assistant Sucessfully imported " + shortname)
     else:
-        path = Path(f"assistant/{shortname}.py")
-        name = "assistant.{}".format(shortname)
+        path = Path(f"userbot/plugins/assistant/{shortname}.py")
+        name = "userbot.plugins.assistant.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
         spec.loader.exec_module(mod)
-        sys.modules["assistant" + shortname] = mod
+        sys.modules["userbot.plugins.assistant" + shortname] = mod
         print("[🤴Assistant🤴 3.0] ~ HAS ~ 💞Installed💞 ~" + shortname)  
 
    
@@ -114,8 +114,8 @@ def start_spam(shortname):
         import importlib
         import sys
         from pathlib import Path
-        path = Path(f"Spam/{shortname}.py")
-        name = "Spam.{}".format(shortname)
+        path = Path(f"userbot/plugins/Spam/{shortname}.py")
+        name = "userbot.plugins.Spam.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -125,8 +125,8 @@ def start_spam(shortname):
         import importlib
         import sys
         from pathlib import Path
-        path = Path(f"Spam/{shortname}.py")
-        name = "Spam.{}".format(shortname)
+        path = Path(f"userbot/plugins/Spam/{shortname}.py")
+        name = "userbot.plugins.Spam.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.tgbot = bot.tgbot
@@ -144,8 +144,8 @@ def load_addons(shortname):
         import sys
         import importlib
         from pathlib import Path
-        path = Path(f"LegendBot-Addons/{shortname}.py")
-        name = "LegendBot-Addons.{}".format(shortname)
+        path = Path(f"userbot/plugins/Xtra_Plugin/{shortname}.py")
+        name = "userbot.plugins.LegendBot-Addons.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -155,8 +155,8 @@ def load_addons(shortname):
         import sys
         import importlib
         from pathlib import Path
-        path = Path(f"LegendBot-Addons/{shortname}.py")
-        name = "LegendBot-Addons.{}".format(shortname)
+        path = Path(f"userbot/plugins/Xtra_Plugin/{shortname}.py")
+        name = "userbot.plugins.Xtra_Plugin.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.Legend = Legend
@@ -187,7 +187,7 @@ def load_addons(shortname):
         spec.loader.exec_module(mod)
         # for imports
         sys.modules["LegendBot-Addons." + shortname] = mod
-        LOGS.info("🔱Extra Plugin🔱 ~ " + shortname)
+        LOGS.info("📍Extra Plugin📍 ~ " + shortname)
 
 def load_abuse(shortname):
     if shortname.startswith("__"):

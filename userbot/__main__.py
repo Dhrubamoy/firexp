@@ -66,52 +66,34 @@ async def module():
 assistant = os.environ.get("ASSISTANT", None)
 async def assistants():
     if assistant == "ON":
-        extra_repo = "https://github.com/The-LegendBot/assistant"
-        try:
-            os.system(f"git clone {extra_repo}")  
-        except BaseException:
-            pass
         import glob
-        LOGS.info("🤖Loading Assistant Plugin🤖")
-        path = "assistant/*.py"
+        path = 'userbot/plugins/assistant/*.py'
         files = glob.glob(path)
         for name in files:
-            with open(name) as ex:
-                path2 = Path(ex.name)
-                shortname = path2.stem
+            with open(name) as f:
+                path1 = Path(f.name)
+                shortname = path1.stem
                 try:
-                    start_assistant(shortname.replace(".py", ""))
-                    if not shortname.startswith("__") or shortname.startswith("_"):
-                        LOGS.info(f"[LEGEND-BOT 3.0] - Assistant -  🤴Installed🤴 - {shortname}")
+                    start_assistant(shortname.replace(".py", ""))   
                 except Exception as e:
-                    LOGS.warning(f"[LEGEND-BOT 3.0] - Assistant - ⚠️⚡ERROR⚡⚠️ - {shortname}")
-                    LOGS.warning(str(e))
+                    print(e)
     else:
         print("⚠️Assistant Not Loaded⚠️")
 
 addon = os.environ.get("EXTRA_PLUGIN", None)             
 async def addons():
     if addon == "ON":
-        extra_repo = "https://github.com/The-LegendBot/LegendBot-Addons"
-        try:
-            os.system(f"git clone {extra_repo}")  
-        except BaseException:
-            pass
         import glob
-        LOGS.info("🔱🏆Loading Extra Plugin🏆🔱")
-        path = "LegendBot-Addons/*.py"
+        path = 'userbot/plugins/Xtra_Plugin/*.py'
         files = glob.glob(path)
         for name in files:
-            with open(name) as ex:
-                path2 = Path(ex.name)
-                shortname = path2.stem
+            with open(name) as f:
+                path1 = Path(f.name)
+                shortname = path1.stem
                 try:
                     load_addons(shortname.replace(".py", ""))
-                    if not shortname.startswith("__") or shortname.startswith("_"):
-                        LOGS.info(f"[LEGEND-BOT 3.0] - Addons -  ✅Installed✅ - {shortname}")
                 except Exception as e:
-                    LOGS.warning(f"[LEGEND-BOT 3.0] - Addons - ⚠️⚡ERROR⚡⚠️ - {shortname}")
-                    LOGS.warning(str(e))
+                    print(e)
     else:
         print("⚠️Addons Not Loading⚠️")
        
@@ -120,52 +102,34 @@ async def addons():
 abuse = os.environ.get("ABUSE", None) 
 async def abuses():
     if abuse == "ON":
-        abuse_repo = "https://github.com/The-LegendBot/ABUSE"
-        try:
-            os.system(f"git clone {abuse_repo}")  
-        except BaseException:
-            pass
         import glob
-        LOGS.info("🤬🤪 Loding Abuse 🤪🤬")
-        path = "ABUSE/*.py"
+        path = 'userbot/plugins/Abuse/*.py'
         files = glob.glob(path)
         for name in files:
-            with open(name) as ex:
-                path2 = Path(ex.name)
-                shortname = path2.stem
+            with open(name) as f:
+                path1 = Path(f.name)
+                shortname = path1.stem
                 try:
-                    load_abuse(shortname.replace(".py", ""))
-                    if not shortname.startswith("__") or shortname.startswith("_"):
-                        LOGS.info(f"[LEGEND-BOT 3.0] - Abuse -  🔥📍Installed✔ - {shortname}")
+                    load_abuse(shortname.replace(".py", ""))    
                 except Exception as e:
-                    LOGS.warning(f"[LEGEND-BOT 3.0] - Abuse - ⚠️⚡ERROR⚡⚠️ - {shortname}")
-                    LOGS.warning(str(e))
+                    print(e)     
     else:
         print("⚠️Abuse Not Loading⚠️")
 
 spam = os.environ.get("SPAM", None)
 async def spams():
     if spam == "ON":
-        extra_repo = "https://github.com/The-LegendBot/Spam"
-        try:
-            os.system(f"git clone {extra_repo}")  
-        except BaseException:
-            pass
         import glob
-        LOGS.info("🤖Loading Spam Bot Plugin🤖")
-        path = "Spam/*.py"
+        path = 'userbot/plugins/Spam/*.py'
         files = glob.glob(path)
         for name in files:
-            with open(name) as ex:
-                path2 = Path(ex.name)
-                shortname = path2.stem
+            with open(name) as f:
+                path1 = Path(f.name)
+                shortname = path1.stem
                 try:
-                    start_spam(shortname.replace(".py", ""))
-                    if not shortname.startswith("__") or shortname.startswith("_"):
-                        LOGS.info(f"[LEGEND-BOT 3.0] - SpamBot -  🤴Installed🤴 - {shortname}")
+                    start_spam(shortname.replace(".py", ""))  
                 except Exception as e:
-                    LOGS.warning(f"[LEGEND-BOT 3.0] - SpamBot - ⚠️⚡ERROR⚡⚠️ - {shortname}")
-                    LOGS.warning(str(e))
+                    print(e)       
     else:
         print("⚠️Spam Not Loading⚠️")
 
