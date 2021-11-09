@@ -10,16 +10,16 @@ import requests
 
 from userbot import *
 from userbot.utils import *
-
+from userbot.Config import Config 
 
 @bot.on(admin_cmd("boobs$"))
 @bot.on(sudo_cmd(pattern="boobs$", allow_sudo=True))
 async def boobs(event):
     if event.fwd_from:
         return
-    if not os.path.isdir(Var.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Var.TMP_DOWNLOAD_DIRECTORY)
-    pic_loc = os.path.join(Var.TMP_DOWNLOAD_DIRECTORY, "bobs.jpg")
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    pic_loc = os.path.join(Comfig.TMP_DOWNLOAD_DIRECTORY, "bobs.jpg")
     a = await event.reply("Finding some big boobs for u 🧐")
     await asyncio.sleep(0.5)
     await a.edit("Sending Some Bigs Boobs")
@@ -36,9 +36,9 @@ async def boobs(event):
 async def butts(event):
     if event.fwd_from:
         return
-    if not os.path.isdir(Var.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Var.TMP_DOWNLOAD_DIRECTORY)
-    pic_loc = os.path.join(Var.TMP_DOWNLOAD_DIRECTORY, "butts.jpg")
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    pic_loc = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, "butts.jpg")
     a = await event.reply("Finding some beautiful butts for u🧐")
     await asyncio.sleep(0.5)
     await a.edit("Sending some beautiful butts🤪")
