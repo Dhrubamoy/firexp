@@ -47,14 +47,8 @@ async def _(event):
             await event.client.send_message(chat, "Futanari")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+           
 
 
 @borg.on(admin_cmd(pattern="hshota?(.*)"))
@@ -73,14 +67,8 @@ async def _(event):
             await event.client.send_message(chat, "Shota")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+           
 
 @borg.on(admin_cmd(pattern="hvideo?(.*)"))
 async def _(event):
@@ -98,14 +86,9 @@ async def _(event):
             await event.client.send_message(chat, "Hentai Videos")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+            
+       
 
 
 @borg.on(admin_cmd(pattern="hoppai?(.*)"))
@@ -124,14 +107,8 @@ async def _(event):
             await event.client.send_message(chat, "Oppai")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+            
 
 @borg.on(admin_cmd(pattern="htrap?(.*)"))
 async def _(event):
@@ -149,14 +126,8 @@ async def _(event):
             await event.client.send_message(chat, "Trap")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+          
 
 
 @borg.on(admin_cmd(pattern="hbdsm?(.*)"))
@@ -175,14 +146,8 @@ async def _(event):
             await event.client.send_message(chat, "BDSM")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+            
 
 @borg.on(admin_cmd(pattern="hfurry?(.*)"))
 async def _(event):
@@ -200,14 +165,8 @@ async def _(event):
             await event.client.send_message(chat, "Furry")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+           
 
 @borg.on(admin_cmd(pattern="hgif?(.*)"))
 async def _(event):
@@ -225,14 +184,8 @@ async def _(event):
             await event.client.send_message(chat, "GIF Hentai")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+            
 
 @borg.on(admin_cmd(pattern="hcosplay?(.*)"))
 async def _(event):
@@ -250,14 +203,8 @@ async def _(event):
             await event.client.send_message(chat, "Cosplay")
             response = await response
         except YouBlockedUserError:
-            await event.reply("```Unblock @LoliHeavenBot```")
-            return
-        if response.text.startswith("I can't find that"):
-            await event.edit("😐")
-        else:
-            await event.delete()
-            xxxx = await event.client.send_file(event.chat_id, response.message)
-            await unsave_gif(xxxx)
+            await event.edit("```Unblock @LoliHeavenBot```")
+            
 
 
 CmdHelp("hentai").add_command(
