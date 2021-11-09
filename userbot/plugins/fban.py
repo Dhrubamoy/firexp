@@ -14,7 +14,7 @@ naam = str(ALIVE_NAME)
 GROUP_ID = "-1001344140905"
 bots = "@MissRose_bot"
 
-BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID
+BOTLOG_CHATID = Config.LOGGER_ID
 
 G_BAN_LOGGER_GROUP = os.environ.get("G_BAN_LOGGER_GROUP", None)
 if G_BAN_LOGGER_GROUP:
@@ -233,7 +233,7 @@ async def get_users(show):
         file.write(mentions)
         file.close()
         await show.client.send_file(
-            GROUP_ID,
+            BOTLOG_CHATID,
             "userslist.csv",
             caption="Group Members in {}".format(title),
             reply_to=show.id,
