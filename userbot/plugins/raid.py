@@ -331,7 +331,7 @@ async def _(event):
 @bot.on(admin_cmd(pattern="raid(?: |$)(.*)"))
 @bot.on(sudo_cmd(pattern="raid(?: |$)(.*)", allow_sudo=True))
 async def spam(e):  
-    if event.fwd_from:
+    if e.fwd_from:
         return
     if e.reply_to_msg_id:             
         a = await e.get_reply_message()
