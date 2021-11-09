@@ -10,7 +10,7 @@ import requests
 
 from userbot import *
 from userbot.utils import *
-from . import *
+
 
 @bot.on(admin_cmd("boobs$"))
 @bot.on(sudo_cmd(pattern="boobs$", allow_sudo=True))
