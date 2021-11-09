@@ -49,7 +49,12 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-           
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx) 
 
 
 @borg.on(admin_cmd(pattern="hshota?(.*)"))
@@ -69,7 +74,12 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-           
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx)
 
 @borg.on(admin_cmd(pattern="hvideo?(.*)"))
 async def _(event):
@@ -88,8 +98,12 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-            
-       
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx)
 
 
 @borg.on(admin_cmd(pattern="hoppai?(.*)"))
