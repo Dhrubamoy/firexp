@@ -123,8 +123,8 @@ async def metoo(e):
     txt = random.choice(SHRUG)
     await edit_or_reply(e, txt)
     
-@bot.on(admin_cmd(pattern=f"doge", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"doge", allow_sudo=True))
+@bot.on(admin_cmd(pattern=f"dome", outgoing=True))
+@bot.on(sudo_cmd(pattern=f"dome", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
         return
@@ -202,7 +202,7 @@ CmdHelp("edits").add_command(
 ).add_command(
   "mesed", None, "Use and see"
 ).add_command(
-  "doge", None, "Use and see"
+  "dome", None, "Use and see"
 ).add_command(
   "shrug", None, "Use and see"
 ).add_command(
