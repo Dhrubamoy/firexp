@@ -2,8 +2,9 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
 
-from . import *
-
+from userbot.plugins import *
+from userbot.cmdhelp import CmdHelp
+from userbot import *
 
 @borg.on(admin_cmd(pattern="hpic?(.*)"))
 async def _(event):
@@ -208,7 +209,7 @@ async def _(event):
 
 
 CmdHelp("hentai").add_command(
-    "hpic", "Uses of this cmnd you get anime porn image"
+    "hpic",None, "Uses of this cmnd you get anime porn image"
 ).add_command(
     "hfutanari", None, "Use And see"
 ).add_warning(
