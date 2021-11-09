@@ -17,7 +17,8 @@ path = "./legendmify/"
 if not os.path.isdir(path):
     os.makedirs(path)
 
-
+from userbot.Config import Config
+lg_id = os.environ.get("LOGGER_ID", None)
 
 @bot.on(admin_cmd(pattern="mms ?(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="mms ?(.*)", allow_sudo=True))
@@ -64,30 +65,29 @@ async def _(event):
     
 @bot.on(admin_cmd(pattern="doge(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="doge(?: |$)(.*)", allow_sudo=True))
-async def nope(lip):
-    legend = lip.pattern_match.group(1)
+async def nope(event):
+    legend = event.pattern_match.group(1)
     if not legend:
-        if lip.is_reply:
-            (await lip.get_reply_message()).message
+        if event.is_reply:
+            (await event.get_reply_message()).message
         else:
             if Config.ABUSE == "ON":
-                return await eor(lip, "Abe chumtiye kuch likhne ke liye de")
+                return await eor(event, "Abe chumtiye kuch likhne ke liye de")
             else:
-                return await eor(lip, "Doge need some text to make sticker.")
-
+                return await eor(event, "Doge need some text to make sticker.")
     troll = await bot.inline_query("DogeStickerBot", f"{(deEmojify(legend))}")
     if troll:
-        await lip.delete()
-        legen_ = await troll[0].click(Config.LOGGER_ID)
+        await event.delete()
+        legen_ = await troll[0].click(lg_id)
         if legen_:
             await bot.send_file(
-                kraken.chat_id,
+                event.chat_id,
                 legen_,
                 caption="",
             )
         await legen_.delete()
     else:
-     await eod(lip, "Error 404:  Not Found")
+     await eod(event, "Error 404:  Not Found")
 
 
 @bot.on(admin_cmd(pattern="gg(?: |$)(.*)", outgoing=True))
@@ -194,4 +194,6 @@ CmdHelp("memify3").add_command(
   "Make Memes on telegram 😉"
 ).add_warning(
   "✅ Harmless Module."
+).add_type(
+  "Addons"
 ).add()
