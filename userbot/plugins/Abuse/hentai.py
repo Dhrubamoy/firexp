@@ -123,7 +123,12 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-            
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx)            
 
 @borg.on(admin_cmd(pattern="htrap?(.*)"))
 async def _(event):
@@ -142,7 +147,12 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-          
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx)          
 
 
 @borg.on(admin_cmd(pattern="hbdsm?(.*)"))
@@ -162,7 +172,12 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-            
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx)            
 
 @borg.on(admin_cmd(pattern="hfurry?(.*)"))
 async def _(event):
@@ -181,7 +196,12 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-           
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx)           
 
 @borg.on(admin_cmd(pattern="hgif?(.*)"))
 async def _(event):
@@ -200,7 +220,12 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-            
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx)            
 
 @borg.on(admin_cmd(pattern="hcosplay?(.*)"))
 async def _(event):
@@ -219,13 +244,34 @@ async def _(event):
             response = await response
         except YouBlockedUserError:
             await event.edit("```Unblock @LoliHeavenBot```")
-            
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            xxxx = await event.client.send_file(event.chat_id, response.message)
+            await unsave_gif(xxxx)            
 
 
 CmdHelp("hentai").add_command(
     "hpic",None, "Uses of this cmnd you get anime porn image"
 ).add_command(
     "hfutanari", None, "Use And see"
+).add_command(
+    "hshota", None, "Use And see"
+).add_command(
+    "hoppai", None, "Use And see"
+).add_command(
+    "htrap", None, "Use And see"
+).add_command(
+    "hbdsm", None, "Use And see"
+).add_command(
+    "hfurry", None, "Use And see"
+).add_command(
+    "hgif", None, "Use And see"
+).add_command(
+    "hcosplay", None, "Use And see"
+).add_command(
+    "hvideo", None, "Use And see"
 ).add_warning(
     "Harm⚠️"
 ).add_info(
