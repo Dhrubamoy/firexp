@@ -333,6 +333,8 @@ async def _(event):
 async def spam(e):  
     if e.fwd_from:
         return
+        legend = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+        smex = await e.get_reply_message()
     if e.reply_to_msg_id:             
         a = await e.get_reply_message()
         b = await e.client.get_entity(a.sender_id)
