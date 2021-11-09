@@ -284,8 +284,8 @@ async def upstream(event):
         origin.fetch()
         force_update = True
         repo.create_head("LegendBot", origin.refs.LegendBot)
-        repo.heads.master.set_tracking_branch(origin.refs.LegendBot)
-        repo.heads.master.checkout(True)
+        repo.heads.LegendBot.set_tracking_branch(origin.refs.LegendBot)
+        repo.heads.LegendBot.checkout(True)
     ac_br = repo.active_branch.name
     if ac_br != UPSTREAM_REPO_BRANCH:
         await event.edit(
@@ -399,8 +399,8 @@ async def upstream(event):
         origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
         repo.create_head("LegendBot", origin.refs.LegendBot)
-        repo.heads.master.set_tracking_branch(origin.refs.LegendBot)
-        repo.heads.master.checkout(True)
+        repo.heads.LegendBot.set_tracking_branch(origin.refs.LegendBot)
+        repo.heads.LegendBot.checkout(True)
     try:
         repo.create_remote("upstream", off_repo)
     except BaseException:
@@ -408,7 +408,7 @@ async def upstream(event):
     ac_br = repo.active_branch.name
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
-    await event.edit(f"**Legendẞø† Docker Build In Progress... Type** `{hl}ping`  **after 5 mins to check if Bot is working!**")
+    await event.edit(f"**Legendẞø† Docker Build In Progress... Type** `.ping`  **after 5 mins to check if Bot is working!**")
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
