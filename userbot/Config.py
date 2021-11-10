@@ -184,7 +184,7 @@ if ENV:
         # number of rows of buttons to be displayed in .legend command
         BUTTONS_IN_HELP = int(os.environ.get("NO_OF_BUTTONS", 7))
         NO_OF_BUTTONS = int(os.environ.get("NO_OF_BUTTONS", 7))
-        
+        BOT_HANDLER = os.environ.get("BOT_HANDLER", "^/")
         #open load
         OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", None)
         OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", None)
