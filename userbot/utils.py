@@ -30,6 +30,7 @@ from userbot import bot, Legend, LegendBot, LOGS
 from userbot.helpers.tools import media_type
 from userbot import CMD_LIST, SUDO_LIST, LOAD_PLUG, LOGS, SUDO_LIST, bot, tbot
 
+bothandler = Config.BOT_HANDLER
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
     from userbot.Config import Config
@@ -241,6 +242,23 @@ def load_abuse(shortname):
         LOGS.info("🔱LegendBot-Abuse🔱 ~ " + shortname)
 
 
+def assistant_cmd(add_cmd, is_args=False):
+    def cmd(func):
+        serena = bot.tgbot
+        if is_args:
+            pattern = bothandler + add_cmd + "(?: |$)(.*)"
+        elif is_args == "stark":
+            pattern = bothandler + add_cmd + " (.*)"
+        elif is_args == "snips":
+            pattern = bothandler + add_cmd + " (\S+)"
+        else:
+            pattern = bothandler + add_cmd + "$"
+        serena.add_event_handler(
+            func, events.NewMessage(incoming=True, pattern=pattern)
+        )
+    return cmd
+
+
 
 def remove_plugin(shortname):
     try:
@@ -324,6 +342,78 @@ def admin_cmd(pattern=None, command=None, **args):
     # check if the plugin should listen for outgoing 'messages'
 
     return events.NewMessage(**args)
+
+def legend_command(**args):
+    args["func"] = lambda e: e.via_bot_id is None
+
+    stack = inspect.stack()
+    previous_stack_frame = stack[1]
+    file_test = Path(previous_stack_frame.filename)
+    file_test = file_test.stem.replace(".py", "")
+    if 1 == 0:
+        return print("stupidity at its best")
+    else:
+        pattern = args.get("pattern", None)
+        allow_sudo = args.get("allow_sudo", None)
+        allow_edited_updates = args.get('allow_edited_updates', False)
+        args["incoming"] = args.get("incoming", False)
+        args["outgoing"] = True
+        if bool(args["incoming"]):
+            args["outgoing"] = False
+
+        try:
+            if pattern is not None and not pattern.startswith('(?i)'):
+                args['pattern'] = '(?i)' + pattern
+        except BaseException:
+            pass
+
+        reg = re.compile('(.*)')
+        if pattern is not None:
+            try:
+                cmd = re.search(reg, pattern)
+                try:
+                    cmd = cmd.group(1).replace(
+                        "$",
+                        "").replace(
+                        "\\",
+                        "").replace(
+                        "^",
+                        "")
+                except BaseException:
+                    pass
+
+                try:
+                    CMD_LIST[file_test].append(cmd)
+                except BaseException:
+                    CMD_LIST.update({file_test: [cmd]})
+            except BaseException:
+                pass
+
+        if allow_sudo:
+            args["from_users"] = list(Config.SUDO_USERS)
+            # Mutually exclusive with outgoing (can only set one of either).
+            args["incoming"] = True
+        del allow_sudo
+        try:
+            del args["allow_sudo"]
+        except BaseException:
+            pass
+
+        if "allow_edited_updates" in args:
+            del args['allow_edited_updates']
+
+        def decorator(func):
+            if allow_edited_updates:
+                bot.add_event_handler(func, events.MessageEdited(**args))
+            bot.add_event_handler(func, events.NewMessage(**args))
+            try:
+                LOAD_PLUG[file_test].append(func)
+            except BaseException:
+                LOAD_PLUG.update({file_test: [func]})
+            return func
+
+        return decorator
+
 
 def sudo_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
